@@ -1,5 +1,7 @@
 export default {
-    url:"/assets/",
+    // url:"/assets",
+    url:"/game/assets",
+
     sizes : {
         width: 800,
         height: 400,
