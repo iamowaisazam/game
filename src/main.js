@@ -12,6 +12,7 @@ export default new Phaser.Game({
     type: Phaser.WEBGL,
     width: config.sizes.width,
     height: config.sizes.height,
+    backgroundColor: '#3498db',
     canvas: gameCanvas,
     physics: {
       default: "arcade",
