@@ -133,6 +133,12 @@ class GameScene extends Phaser.Scene {
 
       }
 
+      if(this.score.score == 6){
+          
+        this.scene.start("scene-gameOver", { score: this.score.score });
+        this.shutdown();    
+      }
+
 
 
           // this.followx = this.dino.sprite.x;

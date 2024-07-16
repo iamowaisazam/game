@@ -22,10 +22,11 @@ export default new Phaser.Game({
       },
     },
     scene: [
+      GameOverScene,
       DashboardScene,
       GameScene,
      
-      GameOverScene,
+     
     
       
     
