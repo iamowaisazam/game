@@ -6,6 +6,7 @@ class Dino {
       this.sprite = this.scene.physics.add.sprite(0,0, "dino", 9)
       .setOrigin(0, 0)
       .setScale(0.15, 0.18);
+      this.sprite.setPosition(55,249); 
       this.sprite.body.allowGravity = true;
       this.sprite.setCollideWorldBounds(true);
 

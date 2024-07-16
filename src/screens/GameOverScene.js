@@ -1,4 +1,6 @@
 import config from "../config";
+import Buttton  from './Shared/Button'
+import Text  from './Shared/Text'
 
 class GameOverScene extends Phaser.Scene {
     constructor() {
@@ -7,7 +9,7 @@ class GameOverScene extends Phaser.Scene {
       this.bg = null;
       this.score = 10;
       this.scoreText = null;
-      this.timeRemaining = 2;
+    
       this.time = null;
       this.button = null;
 
@@ -18,48 +20,46 @@ class GameOverScene extends Phaser.Scene {
     }
   
     preload() {
-      this.load.image("bg",config.url+"bg.png");
+      this.load.image("bg",config.url+"/bg/mybg.jpg");
   
     }
   
     create() {
   
-     this.bg = this.add.image(0,0,"bg").setOrigin(0,0);
+        this.bg = this.add.image(0,0,"bg").setOrigin(0,0);
 
-      this.time = this.add.text((config.sizes.width / 2 - 100),config.sizes.height / 2 - 70,`Game Over`,{
-        font:"50px Arial",
-        fill:"#000000"
-      });
 
-      this.scoreText  = this.add.text((config.sizes.width / 2 - 50),(config.sizes.height / 2 - 10),
-      `Your Score Is ${this.score}`,
-      {
-        font:"25px Arial",
-        fill:"#000000",
-        padding: {
-            x: 10,
-            y: 5
-          }
-      });
+        // this.time = this.add.text((config.sizes.width / 2 - 100),config.sizes.height / 2 - 70,`Game Over`,{
+        //   font:"50px Arial",
+        //   fill:"#000000"
+        // });
 
-      this.button = this.add.text(config.sizes.width / 2 - 50,config.sizes.height / 2 + 30, 'Start Again', {
-        fontFamily: 'Arial',
-        fontSize: '32px',
-        backgroundColor: 'black',
-        padding: {
-          x: 20,
-          y: 10
-        },
-        color: '#ffffff'
-      });
 
-        this.button.setInteractive();
-        this.button.on('pointerup', () => {
+        let Heading = new Text(
+          (config.sizes.width / 2 - 100),
+          (config.sizes.height / 2 - 70),
+          `Game Over`
+        );
+
+        Heading.font = "50px Arial";
+        Heading.fill = "#000000";
+        Heading.add(this);
+
+
+        let Text1 = new Text(
+          (config.sizes.width / 2 - 50),
+          (config.sizes.height / 2 - 10),
+          `Your Score Is ${this.score}`
+        ).add(this);
+
+            
+        let Btn = new Buttton(config.sizes.width / 2 - 50,config.sizes.height / 2 + 30,"Start Again");
+        Btn.add(this);
+        Btn.object.setInteractive();
+        Btn.object.on('pointerup', () => {
             this.scene.start('scene-game');
         });
-      
-
-
+        
     }
 
     update() {
